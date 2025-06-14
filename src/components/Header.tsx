@@ -2,7 +2,7 @@
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
-import { Avatar, AvatarFallback, AvatarInitials } from './ui/avatar';
+import { Avatar, AvatarFallback } from './ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from './ui/dropdown-menu';
 import { Badge } from './ui/badge';
 import { LogOut, Settings, User, Bell } from 'lucide-react';
