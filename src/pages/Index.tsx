@@ -1,19 +1,35 @@
 
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Dashboard from '../components/Dashboard';
 import ManualPage from '../components/ManualPage';
 import DocumentLibrary from '../components/DocumentLibrary';
+import { Button } from '../components/ui/button';
 
 const AppContent = () => {
   const { isAuthenticated } = useAuth();
   const [currentPage, setCurrentPage] = useState('dashboard');
 
   if (!isAuthenticated) {
-    return <LoginForm />;
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-md space-y-6">
+            <LoginForm />
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">Ou visite nossa página de demonstração:</p>
+              <Link to="/android">
+                <Button variant="outline">Ver Projeto Android</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const renderPage = () => {
